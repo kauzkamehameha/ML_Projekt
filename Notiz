@@ -15,4 +15,4 @@ Die `.gitkeep` Dateien markieren nur die Ordnerstruktur damit sie in Git sichtba
    - data/train/realism/
    - (gleiche Struktur für val/ und test/)
 
-test von Anna
+
