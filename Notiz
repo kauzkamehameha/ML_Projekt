@@ -15,4 +15,33 @@ Die `.gitkeep` Dateien markieren nur die Ordnerstruktur damit sie in Git sichtba
    - data/train/realism/
    - (gleiche Struktur für val/ und test/)
 
+### Training einrichten im Jupyter Notebook
+
+   1. Zelle 1 – Imports
+      Lädt alle benötigten Bibliotheken die im Notebook verwendet werden. Muss immer zuerst ausgeführt werden da alle weiteren Zellen darauf aufbauen.
+
+   2. Zelle 2 – Datensatz prüfen
+      Zeigt wie viele Bilder pro Klasse in train/val/test vorhanden sind. Dient als Kontrollblick bevor das Training startet.
+
+   3. Zelle 3 – Preprocessing definieren
+      Definiert die Transformations-Pipeline die jedes Bild durchläuft bevor es ins Modell geht. Training bekommt einen zusätzlichen RandomHorizontalFlip zur Datenerweiterung, Val/Test nicht.
+
+   4. Zelle 4 – Daten laden
+      Lädt die Ordnerstruktur mit ImageFolder und verknüpft sie mit den Transforms aus Zelle 3. Der DataLoader teilt die Daten automatisch in Batches von 32 Bildern auf.
+
+   5. Zelle 5 – Modell aufbauen
+      Lädt das vortrainierte ResNet18 und friert alle Layer ein damit das vorhandene Wissen erhalten bleibt. Der letzte Layer wird durch einen neuen mit 3 Ausgaben ersetzt – eine pro Kunstepoche.
+
+   6. Zelle 6 – Training konfigurieren
+      Definiert die Loss-Funktion CrossEntropyLoss und den Adam-Optimizer mit Lernrate 0.001. Beide werden in der Trainingsschleife verwendet.
+
+   7. Zelle 7 – Trainingsschleife
+      Führt das eigentliche Training über 15 Epochen durch – nach jedem Batch werden Gradienten berechnet und Gewichte angepasst. Nach jeder Epoche wird der Validation Loss geprüft und bei Verbesserung ein Checkpoint gespeichert.
+
+   8. Zelle 8 – Kurven plotten
+      Visualisiert Training und Validation Loss über alle Epochen als Graph. Eine rote Linie markiert die Epoche mit dem besten Checkpoint.
+
+   9. Zelle 9 – Test-Evaluation
+      Lädt den besten Checkpoint und prüft ihn einmalig auf den Test-Daten. Gibt die finale Accuracy aus – das ehrliche Urteil über die Modellqualität.
+
 
