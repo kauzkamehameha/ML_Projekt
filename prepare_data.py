@@ -40,6 +40,9 @@ CLASSES = {
     "cubism":  "Cubism",
     "pop_art": "Pop_Art",
     "realism": "Realism",
+    "romanticism": "Romanticism",
+    "minimalism": "Minimalism",
+    "baroque": "Baroque"
 }
  
 # Erlaubte Bilddateiformate
