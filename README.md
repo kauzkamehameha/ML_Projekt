@@ -193,9 +193,9 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 | Kennzahl    | Wert    |
 | ----------- | ------- |
-| Accuracy    | 73.74 % |
-| Macro F1    | 0.74    |
-| Weighted F1 | 0.74    |
+| Accuracy    | 69.96 % |
+| Macro F1    | 0.70    |
+| Weighted F1 | 0.70    |
 
 Das beste Modell wird anhand des niedrigsten Validation Loss ausgewählt und automatisch gespeichert:
 
